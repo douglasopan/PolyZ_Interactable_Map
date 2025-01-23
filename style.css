@@ -8,3 +8,79 @@ body, html {
   height: 100vh;
   width: 100vw;
 }
+#version-widget {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  font-size: 24px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.6);
+  z-index: 1000; /* Ensure it stays on top */
+}
+    /* Contribution Banner Styles */
+#contribution-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(0, 0, 0, 1); /* Semi-transparent black */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  z-index: 1000; /* Ensure it sits above the map */
+}
+#contribution-banner a {
+  color: #4caf50; /* Green color for the link */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#contribution-banner a:visited {
+  color: #4caf50; /* Keep the same green color even after visiting */
+}
+
+#contribution-banner a:hover {
+  text-decoration: underline;
+}
+
+#contribution-banner a:active {
+  color: #2e7d32; /* Slightly darker green when clicking */
+}
+
+#cursorCloud {
+  position: absolute;
+  pointer-events: none; /* Make sure it doesn't block anything */
+  background: rgba(255, 255, 255, 0.4); /* Soft white color */
+  border-radius: 100%; /* Rounded cloud shape */
+  width: 60px; /* Size of the cloud */
+  height: 60px; /* Size of the cloud */
+  opacity: 1; /* Slight transparency */
+  transform: translate(-50%, -50%); /* Center the cloud on the cursor */
+  z-index: 9999; /* Make sure it's above everything else */
+}
+
+
+@keyframes floatCloud {
+  0% {
+    transform: translate(-50%, -50%) scale(0.35);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(0.40); /* Slightly grow */
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.35);
+  }
+}
+
+/* Apply animation to the cloud */
+#cursorCloud {
+  animation: floatCloud 5s ease-in-out infinite; /* Subtle floating effect */
+}
+
+
+
+
