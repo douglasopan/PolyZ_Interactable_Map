@@ -55,3 +55,33 @@ document.addEventListener('mousemove', function(e) {
   cursorCloud.style.top = `${y}px`;
 });
 
+//STEAM CURRENT PLAYERS IMPLEMENTATION
+
+// GET player count
+async function GetPlayerCount()
+{
+   
+    const url = `https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=2735220`;
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        // is valid
+        if (data && data.response && data.response.result === 1) {
+            const playerCount = data.response.player_count;
+            document.getElementById("player-count-widget").innerText =
+                `Players Online: ${playerCount}`;
+        } else {
+            document.getElementById("player-count-widget").innerText =
+                "Unable to fetch player count.";
+        }
+    } catch (error) {
+        document.getElementById("player-count-widget").innerText =
+            "Error fetching player count.";
+    }
+}
+
+// Get player count
+GetPlayerCount();
+setInterval(GetPlayerCount, 1000);
+
