@@ -61,7 +61,7 @@ document.addEventListener('mousemove', function(e) {
 async function GetPlayerCount()
 {
    
-    const url = `https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=2735220`;
+    const url = `https://corsproxy.io/?https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=2735220`;
     try {
         const response = await fetch(url);
         const data = await response.json();
