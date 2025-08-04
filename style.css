@@ -80,59 +80,40 @@ body, html {
   }
 }
 
-/* Botão "Go to City" */
-#goto-city {
-  position: fixed;
-  bottom: 100px;
-  right: 20px;
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 5px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 14px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-  z-index: 1000;
-  transition: background-color 0.3s ease;
-}
-
-#goto-city:hover {
-  background-color: #388e3c;
-}
-
-/* Sidebar de botões dos pontos */
+/* Barra de botões - horizontal na parte inferior e centralizada */
 #sidebar-buttons {
   position: fixed;
-  top: 100px;
-  left: 20px;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: rgba(0, 0, 0, 0.7);
-  padding: 10px;
-  border-radius: 8px;
+  padding: 8px 15px;
+  border-radius: 30px;
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  max-height: 70vh;
-  overflow-y: auto;
+  flex-direction: row;
+  gap: 12px;
+  max-width: 95vw;
+  overflow-x: auto;
+  white-space: nowrap;
   z-index: 1000;
-  width: 180px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
+/* Botões dentro da barra */
 #sidebar-buttons button {
   background-color: #333;
   color: white;
   border: none;
-  padding: 8px 10px;
-  text-align: left;
+  padding: 8px 12px;
   font-size: 14px;
-  border-radius: 5px;
+  border-radius: 20px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
 }
 
 #sidebar-buttons button:hover {
@@ -140,8 +121,11 @@ body, html {
   color: white;
 }
 
-/* Adicionando espaçamento para o emoji no botão */
-#sidebar-buttons button::before {
-  content: attr(title);
-  display: none; /* Remove default title text, since we show icon + label */
+/* Scrollbar customizada para barra de botões */
+#sidebar-buttons::-webkit-scrollbar {
+  height: 6px;
+}
+#sidebar-buttons::-webkit-scrollbar-thumb {
+  background: #4caf50;
+  border-radius: 3px;
 }
