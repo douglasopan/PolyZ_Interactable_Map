@@ -12,7 +12,7 @@ L.imageOverlay('https://polyzmap.vercel.app/assets/map.jpg', mapBounds).addTo(ma
 map.setMaxBounds(mapBounds);
 map.fitBounds(mapBounds);
 
-// ICONS (custom markers)
+// Marker icons
 const iconCity = L.icon({
   iconUrl: 'https://cdn-icons-png.flaticon.com/512/235/235861.png',
   iconSize: [32, 32],
@@ -20,61 +20,34 @@ const iconCity = L.icon({
   popupAnchor: [0, -30]
 });
 
-// MARKERS
-const CityMarker = L.marker([812, 1600], { icon: iconCity }).addTo(map).bindPopup('City');
-const AirfieldMarker = L.marker([692, 1200]).addTo(map).bindPopup('Airfield');
-const AirfieldMarker2 = L.marker([612, 1220]).addTo(map).bindPopup('Faction Establishment');
-const ResidentialArea01Marker = L.marker([1025, 1220]).addTo(map).bindPopup('Residential Area');
-const ShoppingMallMarker = L.marker([1215, 1410]).addTo(map).bindPopup('Shopping Mall');
-const BunkerMarker = L.marker([1300, 1710]).addTo(map).bindPopup('Bunker');
-const FactionFarmMarker = L.marker([1500, 1710]).addTo(map).bindPopup('Faction Establishment');
-const FactionFarmMarker2 = L.marker([1160, 2140]).addTo(map).bindPopup('Faction Establishment');
-const AbandonedFarmMarker = L.marker([1425, 2000]).addTo(map).bindPopup('Abandoned Farm');
-const AbandonedFarmMarker2 = L.marker([1425, 1865]).addTo(map).bindPopup('Abandoned Farm');
-const SmallTownMarker = L.marker([1425, 1285]).addTo(map).bindPopup('Small Town');
-const SmallTownMarker2 = L.marker([930, 2050]).addTo(map).bindPopup('Small Town');
-const junkyardmarker = L.marker([660, 2090]).addTo(map).bindPopup('Junkyard');
+// Create markers and add to map with popups
+const markers = {
+  city: L.marker([812, 1600], { icon: iconCity }).addTo(map).bindPopup('City'),
+  airfield: L.marker([692, 1200]).addTo(map).bindPopup('Airfield'),
+  faction1: L.marker([612, 1220]).addTo(map).bindPopup('Faction Establishment'),
+  residential: L.marker([1025, 1220]).addTo(map).bindPopup('Residential Area'),
+  shoppingMall: L.marker([1215, 1410]).addTo(map).bindPopup('Shopping Mall'),
+  bunker: L.marker([1300, 1710]).addTo(map).bindPopup('Bunker'),
+  faction2: L.marker([1500, 1710]).addTo(map).bindPopup('Faction Establishment'),
+  faction3: L.marker([1160, 2140]).addTo(map).bindPopup('Faction Establishment'),
+  abandonedFarmN: L.marker([1425, 2000]).addTo(map).bindPopup('Abandoned Farm North'),
+  abandonedFarmS: L.marker([1425, 1865]).addTo(map).bindPopup('Abandoned Farm South'),
+  smallTownE: L.marker([1425, 1285]).addTo(map).bindPopup('Small Town East'),
+  smallTownW: L.marker([930, 2050]).addTo(map).bindPopup('Small Town West'),
+  junkyard: L.marker([660, 2090]).addTo(map).bindPopup('Junkyard')
+};
 
-// Track cursor movement
-document.addEventListener('mousemove', function (e) {
+// Track cursor movement for cursorCloud effect
+document.addEventListener('mousemove', e => {
   const cursorCloud = document.getElementById('cursorCloud');
-  const x = e.clientX;
-  const y = e.clientY;
-
-  cursorCloud.style.left = `${x}px`;
-  cursorCloud.style.top = `${y}px`;
+  cursorCloud.style.left = `${e.clientX}px`;
+  cursorCloud.style.top = `${e.clientY}px`;
 });
 
 // Sidebar buttons: center map on button click
-const sidebarButtons = document.querySelectorAll('#sidebar-buttons button');
-sidebarButtons.forEach(button => {
+document.querySelectorAll('#sidebar-buttons button').forEach(button => {
   button.addEventListener('click', () => {
     const coords = button.getAttribute('data-coords').split(',').map(Number);
-    map.setView(coords, 2); // Adjust zoom level as needed
+    map.setView(coords, 2); // Zoom level 2, adjust as needed
   });
 });
-
-/* STEAM API (commented out for future use)
-async function GetPlayerCount() {
-  const url = `https://corsproxy.io/?https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=2735220`;
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-
-    if (data && data.response && data.response.result === 1) {
-      const playerCount = data.response.player_count;
-      document.getElementById("player-count-widget").innerText =
-        `Players Online: ${playerCount}`;
-    } else {
-      document.getElementById("player-count-widget").innerText =
-        "Unable to fetch player count.";
-    }
-  } catch (error) {
-    document.getElementById("player-count-widget").innerText =
-      "Error fetching player count.";
-  }
-}
-
-// GetPlayerCount();
-// setInterval(GetPlayerCount, 1000);
-*/
