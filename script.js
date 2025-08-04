@@ -51,4 +51,37 @@ document.getElementById('goto-city').addEventListener('click', () => {
   map.setView([812, 1600], 2); // Adjust zoom as needed
 });
 
-// STEAM API (commente
+// Sidebar buttons: center map on button click
+const sidebarButtons = document.querySelectorAll('#sidebar-buttons button');
+sidebarButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const coords = button.getAttribute('data-coords').split(',').map(Number);
+    // Set view with zoom 2 (adjust zoom if needed)
+    map.setView(coords, 2);
+  });
+});
+
+/* STEAM API (commented, ready for future use)
+async function GetPlayerCount() {
+  const url = `https://corsproxy.io/?https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=2735220`;
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    if (data && data.response && data.response.result === 1) {
+      const playerCount = data.response.player_count;
+      document.getElementById("player-count-widget").innerText =
+        `Players Online: ${playerCount}`;
+    } else {
+      document.getElementById("player-count-widget").innerText =
+        "Unable to fetch player count.";
+    }
+  } catch (error) {
+    document.getElementById("player-count-widget").innerText =
+      "Error fetching player count.";
+  }
+}
+
+// GetPlayerCount();
+// setInterval(GetPlayerCount, 1000);
+*/
