@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PolyZ Official Interactive Map</title>
+
+  <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Optional: Icon set for markers -->
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/235/235861.png" />
 </head>
 
-		<!-- Version Widget -->
-<div id="version-widget">
-  PolyZ Official Interactive Map [BETA | Version: v0.065]
-</div>
-
+<body>
+  <!-- Version Widget -->
+  <div id="version-widget">
+    PolyZ Official Interactive Map [BETA | Version: v0.065]
+  </div>
 
   <!-- Contribution Banner -->
-<div id="contribution-banner">
-  Are you a developer? <a href="https://github.com/SSG2025/PolyZ_Interactable_Map" target="_blank">Contribute on GitHub</a>!
-</div>
- 
-<div id="cursorCloud"></div>
+  <div id="contribution-banner">
+    Are you a developer? <a href="https://polyz.co.uk" target="_blank">Contribute at PolyZ.co.uk</a>!
+  </div>
 
+  <!-- Cursor Cloud -->
+  <div id="cursorCloud"></div>
 
-<body>
+  <!-- Map Container -->
   <div id="map"></div>
 
+  <!-- Zoom-to-City Button -->
+  <button id="goto-city">Go to City</button>
+
+  <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- Custom Script -->
   <script src="script.js"></script>
-
-
 </body>
 </html>
