@@ -51,3 +51,39 @@ document.querySelectorAll('#sidebar-buttons button').forEach(button => {
     map.setView(coords, 2); // Zoom level 2, adjust as needed
   });
 });
+
+// Toggle menu show/hide
+const toggleBtn = document.getElementById('toggle-menu-btn');
+const sidebarButtons = document.getElementById('sidebar-buttons');
+
+toggleBtn.addEventListener('click', () => {
+  sidebarButtons.classList.toggle('open');
+  // Alterna atributo aria-hidden para acessibilidade
+  const isOpen = sidebarButtons.classList.contains('open');
+  sidebarButtons.setAttribute('aria-hidden', !isOpen);
+  toggleBtn.setAttribute('aria-expanded', isOpen);
+});
+
+// Fecha o menu se clicar fora dele (opcional)
+document.addEventListener('click', (e) => {
+  if (
+    !sidebarButtons.contains(e.target) &&
+    !toggleBtn.contains(e.target) &&
+    sidebarButtons.classList.contains('open')
+  ) {
+    sidebarButtons.classList.remove('open');
+    sidebarButtons.setAttribute('aria-hidden', 'true');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+  }
+});
+
+// Continua seu código normal para os botões centralizarem o mapa
+document.querySelectorAll('#sidebar-buttons button').forEach(button => {
+  button.addEventListener('click', () => {
+    const coords = button.getAttribute('data-coords').split(',').map(Number);
+    map.setView(coords, 2);
+    sidebarButtons.classList.remove('open');
+    sidebarButtons.setAttribute('aria-hidden', 'true');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+  });
+});
