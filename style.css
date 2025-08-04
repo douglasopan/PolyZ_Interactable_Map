@@ -37,23 +37,23 @@ body, html {
   }
 }
 
-/* Barra de botões - horizontal na parte inferior e centralizada, com wrap */
+/* Barra de botões - cobre toda a largura da tela, fixa embaixo */
 #sidebar-buttons {
   position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 10px 20px;
-  border-radius: 30px;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px 0;
   display: flex;
-  flex-wrap: wrap; /* Permite quebra de linha */
-  justify-content: center; /* Centraliza os botões */
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 12px;
-  max-width: 95vw;
-  white-space: normal; /* Permite quebra de texto no botão */
+  white-space: normal;
   z-index: 1000;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.7);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 /* Botões dentro da barra */
@@ -68,7 +68,7 @@ body, html {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  white-space: nowrap; /* O texto do botão não quebra */
+  white-space: nowrap;
   transition: background-color 0.2s ease;
   flex-shrink: 0;
   min-width: 120px;
