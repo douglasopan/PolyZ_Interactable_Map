@@ -37,51 +37,7 @@ body, html {
   }
 }
 
-/* Barra de botões - cobre toda a largura da tela, fixa embaixo */
-#sidebar-buttons {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 10px 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  white-space: normal;
-  z-index: 1000;
-  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.7);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-/* Botões dentro da barra */
-#sidebar-buttons button {
-  background-color: #333;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  font-size: 14px;
-  border-radius: 20px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  white-space: nowrap;
-  transition: background-color 0.2s ease;
-  flex-shrink: 0;
-  min-width: 120px;
-  text-align: center;
-}
-
-#sidebar-buttons button:hover {
-  background-color: #4caf50;
-  color: white;
-}
-
-
-/* Botão toggle para abrir menu - fixo no rodapé direito/centralizado */
+/* Botão toggle para abrir menu - com sombra maior */
 #toggle-menu-btn {
   position: fixed;
   bottom: 10px;
@@ -95,7 +51,7 @@ body, html {
   font-size: 24px;
   color: white;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.7);
   transition: background-color 0.3s ease;
 }
 
@@ -157,4 +113,12 @@ body, html {
 #sidebar-buttons button:hover {
   background-color: #4caf50;
   color: white;
+}
+
+/* Menu aberto: altura fixa e scroll vertical em telas pequenas */
+@media (max-width: 600px) {
+  #sidebar-buttons.open {
+    max-height: 250px; /* altura fixa menor no celular */
+    overflow-y: auto;  /* habilita scroll vertical */
+  }
 }
