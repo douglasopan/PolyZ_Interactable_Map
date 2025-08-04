@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PolyZ Official Interactive Map</title>
 
   <!-- Leaflet CSS -->
@@ -10,7 +10,6 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Optional: Icon set for markers -->
   <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/235/235861.png" />
 </head>
 
@@ -21,12 +20,12 @@
   <!-- Map Container -->
   <div id="map"></div>
 
-  <!-- Botão toggle para mostrar/esconder menu -->
-  <button id="toggle-menu-btn" aria-label="Open Map Points Menu" title="Open Map Points Menu">
+  <!-- Toggle Button to open/close menu -->
+  <button id="toggle-menu-btn" aria-label="Open Map Points Menu" title="Open Map Points Menu" aria-expanded="false">
     🗺️
   </button>
 
-  <!-- Barra de botões com pontos de interesse (escondida por padrão) -->
+  <!-- Sidebar Buttons with all points (hidden by default) -->
   <div id="sidebar-buttons" aria-hidden="true">
     <button data-coords="812,1600" title="City">🏙️ City</button>
     <button data-coords="692,1200" title="Airfield">🛩️ Airfield</button>
@@ -48,5 +47,4 @@
   <!-- Custom Script -->
   <script src="script.js"></script>
 </body>
-
 </html>
