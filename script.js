@@ -22,7 +22,6 @@ const iconCity = L.icon({
 
 // MARKERS
 const CityMarker = L.marker([812, 1600], { icon: iconCity }).addTo(map).bindPopup('City');
-
 const AirfieldMarker = L.marker([692, 1200]).addTo(map).bindPopup('Airfield');
 const AirfieldMarker2 = L.marker([612, 1220]).addTo(map).bindPopup('Faction Establishment');
 const ResidentialArea01Marker = L.marker([1025, 1220]).addTo(map).bindPopup('Residential Area');
@@ -46,22 +45,16 @@ document.addEventListener('mousemove', function (e) {
   cursorCloud.style.top = `${y}px`;
 });
 
-// Go to City Button
-document.getElementById('goto-city').addEventListener('click', () => {
-  map.setView([812, 1600], 2); // Adjust zoom as needed
-});
-
 // Sidebar buttons: center map on button click
 const sidebarButtons = document.querySelectorAll('#sidebar-buttons button');
 sidebarButtons.forEach(button => {
   button.addEventListener('click', () => {
     const coords = button.getAttribute('data-coords').split(',').map(Number);
-    // Set view with zoom 2 (adjust zoom if needed)
-    map.setView(coords, 2);
+    map.setView(coords, 2); // Adjust zoom level as needed
   });
 });
 
-/* STEAM API (commented, ready for future use)
+/* STEAM API (commented out for future use)
 async function GetPlayerCount() {
   const url = `https://corsproxy.io/?https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=2735220`;
   try {
