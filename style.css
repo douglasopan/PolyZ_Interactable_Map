@@ -79,3 +79,82 @@ body, html {
   background-color: #4caf50;
   color: white;
 }
+
+
+/* Botão toggle para abrir menu - fixo no rodapé direito/centralizado */
+#toggle-menu-btn {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  z-index: 1100;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+
+#toggle-menu-btn:hover {
+  background-color: #388e3c;
+}
+
+/* Barra de botões (menu) — posicionada embaixo, escondida por padrão */
+#sidebar-buttons {
+  position: fixed;
+  bottom: 68px; /* 48px botão + 10px margin + 10px padding */
+  left: 0;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  white-space: normal;
+  z-index: 1050;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.7);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+/* Quando menu está aberto */
+#sidebar-buttons.open {
+  max-height: 200px; /* ajuste conforme a altura necessária */
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Botões dentro da barra */
+#sidebar-buttons button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+  min-width: 120px;
+  text-align: center;
+}
+
+#sidebar-buttons button:hover {
+  background-color: #4caf50;
+  color: white;
+}
