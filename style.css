@@ -11,49 +11,6 @@ body, html {
   width: 100vw;
 }
 
-/* Widget de versão (canto superior direito) */
-#version-widget {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: rgba(0, 0, 0, 0.4);
-  color: white;
-  font-size: 24px;
-  padding: 10px 20px;
-  border-radius: 5px;
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.6);
-  z-index: 1000;
-}
-
-/* Banner de contribuição (canto inferior esquerdo) */
-#contribution-banner {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background-color: rgba(0, 0, 0, 1);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-}
-
-#contribution-banner a {
-  color: #4caf50;
-  text-decoration: none;
-  font-weight: bold;
-}
-#contribution-banner a:visited {
-  color: #4caf50;
-}
-#contribution-banner a:hover {
-  text-decoration: underline;
-}
-#contribution-banner a:active {
-  color: #2e7d32;
-}
-
 /* Cursor personalizado (efeito nuvem) */
 #cursorCloud {
   position: absolute;
@@ -80,21 +37,21 @@ body, html {
   }
 }
 
-/* Barra de botões - horizontal na parte inferior e centralizada */
+/* Barra de botões - horizontal na parte inferior e centralizada, com wrap */
 #sidebar-buttons {
   position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(0, 0, 0, 0.7);
-  padding: 8px 15px;
+  padding: 10px 20px;
   border-radius: 30px;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap; /* Permite quebra de linha */
+  justify-content: center; /* Centraliza os botões */
   gap: 12px;
   max-width: 95vw;
-  overflow-x: auto;
-  white-space: nowrap;
+  white-space: normal; /* Permite quebra de texto no botão */
   z-index: 1000;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
@@ -111,21 +68,14 @@ body, html {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  white-space: nowrap;
+  white-space: nowrap; /* O texto do botão não quebra */
   transition: background-color 0.2s ease;
   flex-shrink: 0;
+  min-width: 120px;
+  text-align: center;
 }
 
 #sidebar-buttons button:hover {
   background-color: #4caf50;
   color: white;
-}
-
-/* Scrollbar customizada para barra de botões */
-#sidebar-buttons::-webkit-scrollbar {
-  height: 6px;
-}
-#sidebar-buttons::-webkit-scrollbar-thumb {
-  background: #4caf50;
-  border-radius: 3px;
 }
