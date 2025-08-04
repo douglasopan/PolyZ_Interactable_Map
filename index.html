@@ -21,8 +21,13 @@
   <!-- Map Container -->
   <div id="map"></div>
 
-  <!-- Sidebar Buttons for all points (horizontal bottom center, wrap lines) -->
-  <div id="sidebar-buttons">
+  <!-- Botão toggle para mostrar/esconder menu -->
+  <button id="toggle-menu-btn" aria-label="Open Map Points Menu" title="Open Map Points Menu">
+    🗺️
+  </button>
+
+  <!-- Barra de botões com pontos de interesse (escondida por padrão) -->
+  <div id="sidebar-buttons" aria-hidden="true">
     <button data-coords="812,1600" title="City">🏙️ City</button>
     <button data-coords="692,1200" title="Airfield">🛩️ Airfield</button>
     <button data-coords="612,1220" title="Faction Base 1">🛡️ Faction Base 1</button>
@@ -43,4 +48,5 @@
   <!-- Custom Script -->
   <script src="script.js"></script>
 </body>
+
 </html>
