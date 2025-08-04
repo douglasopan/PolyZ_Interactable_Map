@@ -1,13 +1,16 @@
-/* Fullscreen map */
+/* Reset básico e mapa em tela cheia */
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
 }
+
 #map {
   height: 100vh;
   width: 100vw;
 }
+
+/* Widget de versão (canto superior direito) */
 #version-widget {
   position: fixed;
   top: 20px;
@@ -18,69 +21,82 @@ body, html {
   padding: 10px 20px;
   border-radius: 5px;
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.6);
-  z-index: 1000; /* Ensure it stays on top */
+  z-index: 1000;
 }
-    /* Contribution Banner Styles */
+
+/* Banner de contribuição (canto inferior esquerdo) */
 #contribution-banner {
   position: fixed;
   bottom: 20px;
   left: 20px;
-  background-color: rgba(0, 0, 0, 1); /* Semi-transparent black */
+  background-color: rgba(0, 0, 0, 1);
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  z-index: 1000; /* Ensure it sits above the map */
+  z-index: 1000;
 }
+
 #contribution-banner a {
-  color: #4caf50; /* Green color for the link */
+  color: #4caf50;
   text-decoration: none;
   font-weight: bold;
 }
-
 #contribution-banner a:visited {
-  color: #4caf50; /* Keep the same green color even after visiting */
+  color: #4caf50;
 }
-
 #contribution-banner a:hover {
   text-decoration: underline;
 }
-
 #contribution-banner a:active {
-  color: #2e7d32; /* Slightly darker green when clicking */
+  color: #2e7d32;
 }
 
+/* Cursor personalizado (efeito nuvem) */
 #cursorCloud {
   position: absolute;
-  pointer-events: none; /* Make sure it doesn't block anything */
-  background: rgba(255, 255, 255, 0.4); /* Soft white color */
-  border-radius: 100%; /* Rounded cloud shape */
-  width: 60px; /* Size of the cloud */
-  height: 60px; /* Size of the cloud */
-  opacity: 1; /* Slight transparency */
-  transform: translate(-50%, -50%); /* Center the cloud on the cursor */
-  z-index: 9999; /* Make sure it's above everything else */
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  opacity: 1;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  animation: floatCloud 5s ease-in-out infinite;
 }
-
 
 @keyframes floatCloud {
   0% {
     transform: translate(-50%, -50%) scale(0.35);
   }
   50% {
-    transform: translate(-50%, -50%) scale(0.40); /* Slightly grow */
+    transform: translate(-50%, -50%) scale(0.40);
   }
   100% {
     transform: translate(-50%, -50%) scale(0.35);
   }
 }
 
-/* Apply animation to the cloud */
-#cursorCloud {
-  animation: floatCloud 5s ease-in-out infinite; /* Subtle floating effect */
+/* Botão "Go to City" */
+#goto-city {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  z-index: 1000;
+  transition: background-color 0.3s ease;
 }
 
-
-
-
+#goto-city:hover {
+  background-color: #388e3c;
+}
