@@ -37,7 +37,7 @@ body, html {
   }
 }
 
-/* Botão toggle para abrir menu - com sombra maior */
+/* Botão toggle para abrir menu - centralizado na parte inferior */
 #toggle-menu-btn {
   position: fixed;
   bottom: 10px;
